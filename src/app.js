@@ -7,6 +7,7 @@ import stockRoutes from './routes/stocks';
 import authRoutes from './routes/auth';
 
 const app = express();
+require('dotenv').config();
 
 // Authentication
 const authentication = require('../middlewares/authentication');

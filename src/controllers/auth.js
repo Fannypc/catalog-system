@@ -75,7 +75,7 @@ async function authToken(user) {
             firstName: user.firstName,
             lastName: user.lastName
         }, 
-            'secret', 
+            process.env.JWT_SECRET, 
         {
             expiresIn:'10m'
         }
