@@ -1,4 +1,4 @@
-# KintoHub Express Example
+# Express Project
 
 ## Overview
 
@@ -16,11 +16,11 @@ Ensure you have node 14.17.6 or higher.
 
 ## Usage
 ### Environment Variables
-JTW_SECRET
-DB_USERNAME
-DB_PASSWORD
-DB_DATABASE
-DB_HOST
+JTW_SECRET <br>
+DB_USERNAME <br>
+DB_PASSWORD <br>
+DB_DATABASE <br>
+DB_HOST <br>
 
 ### API Documentation
 
