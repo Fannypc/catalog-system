@@ -27,10 +27,19 @@ export async function login(request, response) {
     }
 }
 
-export function logout(req, res) {
+export async function logout(req, res) {
     try {
-        
+        if (req.user) {
+            console.log('si llegue a re user')
+            await User.update({
+                token: null
+            }, { where: {id: req.user.id} });
+        }
+        delete req.user;
+        delete req.token;
+        res.json({message: "You have successfully logged out"});
     } catch (error) {
+        console.log(error);
         res.sendStatus(500);
     }
 }

@@ -23,6 +23,13 @@ export async function all(req, res) {
 export async function info(req, res) {
     try {
         const stock = await Stock.findOne({where: {id: req.params.id}});
+
+        if(stock && !req.user) {
+            // stock.increment('timesQueried');
+            // stock.save();
+            await stock.increment('timesQueried', {by: 1});
+        }
+        await stock.increment('timesQueried', {by: 1});
         stock ? res.send(stock) : res.sendStatus(404);
     } catch (err) {
         console.log(error);
