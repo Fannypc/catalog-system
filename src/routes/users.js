@@ -1,12 +1,12 @@
 import { Router } from 'express';
-import { create, all, info, update, destroy } from '../controllers/user';
+import { all, info, update, destroy } from '../controllers/user';
+import Roles from '../../helpers/roles';
 const router = Router();
 const authorization = require('../../middlewares/authorization');
 
-router.get('/', authorization(['Admin']), all);
-router.get('/:id', authorization(['Admin']), info);
-router.post('/', authorization(['Admin']), create);
-router.put('/:id', authorization(['Admin']), update);
-router.delete('/:id', authorization(['Admin']), destroy);
+router.get('/', authorization([Roles.Admin]), all);
+router.get('/:id', authorization([Roles.Admin]), info);
+router.put('/:id', authorization([Roles.Admin]), update);
+router.delete('/:id', authorization([Roles.Admin]), destroy);
 
 export default router;
